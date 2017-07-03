@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Play with Turtle</title>
+  <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    font-family: 'Lobster', cursive;
+  } 
+
+ .header {
+    width: auto;
+    height: 70px;
+    font-size: 35px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: #6a9d3e;
+    font-family: 'Lobster', cursive;
+}
+
+  .main {
+    width: auto;
+    height: 537px;
+  }
+
+  .footer {
+    width: auto;
+    height: 55px;
+    font-size: 27px;
+    color: white;
+    background-color: #6a9d3e;
+    text-align: center;
+    line-height: 2;
+  }
+
+  .footer-frase {
+    width: 470px;
+    height: 55px;
+    font-size: 27px;
+    color: white;
+    text-align: center;
+    line-height: 2;
+    /*background-color: red;*/
+    position: absolute;
+    left: 34%;
+  }
+
+  .turtle {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 165px;
+    left: 540px;
+  }
+
+  .turtle img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+
+
+   </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="header">Поиграй с черепашкой!</div>
+    <div class="main">
+      <div class="turtle"><img src="./img/01Turtle.png" class="turtle-img"></div>
+    </div>
+    <div class="footer"><div class="footer-frase">Она будет рада!</div></div>
+  </body>
+  </html>
+
+  <script type="text/javascript">
+
+  var turtle = document.querySelector(".turtle-img");
+
+  turtle.onclick = onclickTurtle;
+
+  function onclickTurtle(event) {
+    var newTurtle = getRandomTurtle();
+    while (event.currentTarget.src === newTurtle) {
+      newTurtle = getRandomTurtle();
+    } 
+    event.currentTarget.src = newTurtle;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomTurtle() {
+  var listRandomTurtle = ["./img/01Turtle.png", "./img/02Turtle.png", "./img/03Turtle.png", "./img/04Turtle.png"];
+  var randomIndex = getRandomInt(0, listRandomTurtle.length-1);
+  return listRandomTurtle[randomIndex];
+}
+
+
+  </script>
